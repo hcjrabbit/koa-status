@@ -4,14 +4,7 @@
 
 var codes = require('./lib/codes.json');
 
-module.exports = function(app){
-    if (isApp(app)) {
-        app.context.status = status;
-        return app;
-    } else
-        return function*(){};
 
-};
 
 // [Integer...]
 status.codes = Object.keys(codes).map(function (code) {
@@ -47,7 +40,7 @@ status.retry = {
     504: true
 };
 
-function status *(code) {
+function status (code) {
     if (typeof code === 'number') {
         if (!status[code]) throw new Error('invalid status code: ' + code);
         return code;
@@ -72,3 +65,16 @@ function status *(code) {
 function isApp(app) {
     return app && app.context && app.response && app.request
 }
+
+module.exports = function(app){
+    if (isApp(app)) {
+        app.status = status;
+        return app;
+    }
+    return function *status(){
+        this.status = status;
+        return this;
+    }
+
+
+};
