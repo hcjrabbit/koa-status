@@ -1,0 +1,24 @@
+{
+  "name": "koa-statuses",
+  "version": "1.0.0",
+  "description": "将status赋予给koa的上下文",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hcjrabbit/koa-status"
+  },
+  "keywords": [
+    "koa",
+    "status",
+    "code"
+  ],
+  "author": "He chengjun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcjrabbit/koa-status/issues"
+  },
+  "homepage": "https://github.com/hcjrabbit/koa-status"
+}
