@@ -63,17 +63,17 @@ function status (code) {
 }
 
 function isApp(app) {
-    return app && app.context && app.response && app.request
+    return app && app.context && app.response && app.request;
 }
 
 module.exports = function(app){
     if (isApp(app)) {
-        app.status = status;
+        app.context.querySataus = status;
         return app;
     }
-    return function *status(){
-        this.status = status;
-        return this;
+    return function *(next){
+        this.app.context.querySataus = status;
+        yield next;
     }
 
 
